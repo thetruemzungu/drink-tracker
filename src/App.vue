@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/images/cfbr_logo.jpg">
+    <img alt="CFBR Logo" src="./assets/images/cfbr_logo.jpg">
     <WelcomePage msg="Wanna get a drink?"/>
   </div>
 </template>

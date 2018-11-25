@@ -4,9 +4,9 @@
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-3">
-        <div class="button">
+        <button class="button" v-on:click="chooseDrink(drink)">
           {{drink.name}}
-        </div>
+        </button>
       </div>
       <div class="col-sm-3 price">
         cost: {{drink.price | money }}
@@ -21,6 +21,16 @@ export default {
   name: 'DrinkList',
   props: {
     drinksData: Array
+  },
+  created() {
+    this.$session.destroy()
+    this.$session.start()
+  },
+  methods:{
+    chooseDrink: function(drink) {
+      this.$session.set("drink", drink)
+      window.location.href = '/customerList'
+    }
   }
 }
 </script>
@@ -37,5 +47,6 @@ export default {
     margin: 0 auto .5em;
     background-color: #2B4162;
     padding: .75em;
+    width: 100%;
   }
 </style>
