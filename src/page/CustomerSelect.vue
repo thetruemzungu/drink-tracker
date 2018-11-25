@@ -21,7 +21,7 @@ export default {
   },
   methods:{
     customers: () => {
-      return [{name: 'John Snow', quantity: 2},{name: 'Ethan Latimer', quantity: 4},{name: 'Kirito', quantity: 5},{name: 'Mega Man', quantity: 1},{name: 'Laila', quantity: 3}]
+      return [{name: 'John Snow', quantity: 2, initials: 'js'},{name: 'Ethan Latimer', quantity: 4, initials: 'el'},{name: 'Kirito', quantity: 5, initials: 'k'},{name: 'Mega Man', quantity: 1, initials:'mm'},{name: 'Laila', quantity: 3, initials:'l'}]
     }
   }
 }
