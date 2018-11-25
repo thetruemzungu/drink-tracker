@@ -1,16 +1,15 @@
 <template>
 <div class="container">
-  {{drinkData}}
-  <div v-for="drink in drinkData">
+  <div v-for="drink in drinksData" :key="drink.name">
     <div class="row">
-      <div class="col-sm"></div>
-      <div class="col-sm">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-3">
         <div class="button">
-          drink.name
+          {{drink.name}}
         </div>
       </div>
-      <div class="col-sm price">
-        drink.price
+      <div class="col-sm-3 price">
+        cost: {{drink.price | money }}
       </div>
     </div>
   </div>
@@ -21,26 +20,21 @@
 export default {
   name: 'DrinkList',
   props: {
-    drinkData: Object
+    drinksData: Array
   }
 }
 </script>
 <style scoped>
   .price{
     font-size: 2em;
-    text-align: center;
-    margin:auto;
-  }
-  .structure{
-    border-radius: 25px;
-    margin: .5em;
+    text-align: left;
+    padding: 1% 0;
   }
   .button{
     border-radius: 25px;
     font-size: 1.5em;
     color: #E1F2FE;
-    margin: 0 auto;
-    width: 50%;
+    margin: 0 auto .5em;
     background-color: #2B4162;
     padding: .75em;
   }

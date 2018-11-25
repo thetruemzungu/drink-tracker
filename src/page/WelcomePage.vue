@@ -2,7 +2,7 @@
   <div class="WelcomePage">
     <hr>
     <h1>{{ msg }}</h1>
-    <DrinkList drinkList=drinks />
+    <DrinkList :drinksData=drinks()></DrinkList>
   </div>
 </template>
 
@@ -19,14 +19,7 @@ export default {
   },
   methods:{
     drinks: () =>{
-      return [{
-        name: "Kill Cliff",
-        price: 2.00
-      },
-      {
-        name: "O2",
-        price: 2.25
-      }]
+      return [{name: 'Kill Cliff', price: 2.00},{name: 'O2', price: 2.25},{name: 'StarBucks', price: 2.50},{name: 'Red Bull', price: 2.75},{name: 'Coke Zero', price: 3.00}]
     }
   }
 }
