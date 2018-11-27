@@ -1,13 +1,13 @@
 <template>
   <div class="WelcomePage">
-    <hr>
-    <h1>{{ msg }}</h1>
+    <MasterHeader msg="Want to get a drink?"></MasterHeader>
     <DrinkList :drinksData=drinks()></DrinkList>
   </div>
 </template>
 
 <script>
 import DrinkList from '../components/DrinkList.vue'
+import MasterHeader from '../components/MasterHeader.vue'
 
 export default {
   name: 'WelcomePage',
@@ -15,7 +15,8 @@ export default {
     msg: String
   },
   components: {
-    DrinkList
+    DrinkList,
+    MasterHeader
   },
   methods:{
     drinks: () => {

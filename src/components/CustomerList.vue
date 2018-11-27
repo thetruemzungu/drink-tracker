@@ -11,6 +11,13 @@
       <div class="col-sm-3"></div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <button class="addButton" v-on:click="addCustomer(customer)">- Add New Customer -</button>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
 </div>
 </template>
 
@@ -24,6 +31,9 @@ export default {
     chooseCustomer: () => {
       this.$session.set(customer, customer)
       window.location.href = '/checkout'
+    },
+    addCustomer: () => {
+      window.alert("TBD: Add Customer");
     }
   }
 }
@@ -43,6 +53,16 @@ export default {
     background-color: #2B4162;
     padding: .75em;
     text-align: left;
+    width: 100%;
+  }
+  .addButton{
+    border-radius: 10px;
+    font-size: 1.5em;
+    color: #E1F2FE;
+    margin: 0 auto .5em;
+    background-color: #2B4162;
+    padding: .75em;
+    text-align: center;
     width: 100%;
   }
 </style>

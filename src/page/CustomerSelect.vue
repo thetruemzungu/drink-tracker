@@ -1,23 +1,19 @@
 <template>
   <div class="CustomerSelect" id="app">
-    <img alt="Vue logo" src="../assets/images/cfbr_logo.jpg">
-    
-    <hr>
-    <h1>Who are you?</h1>
+    <MasterHeader msg="Who are you?"></MasterHeader>
     <CustomerList :customersData=customers()></CustomerList>
   </div>
 </template>
 
 <script>
 import CustomerList from '../components/CustomerList.vue'
+import MasterHeader from '../components/MasterHeader.vue'
 
 export default {
   name: 'CustomerSelect',
-  props: {
-    msg: String
-  },
   components: {
-    CustomerList
+    CustomerList,
+    MasterHeader
   },
   methods:{
     customers: () => {

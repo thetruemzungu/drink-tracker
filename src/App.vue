@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="CFBR Logo" src="./assets/images/cfbr_logo.jpg">
-    <WelcomePage msg="Wanna get a drink?"/>
+    <WelcomePage/>
   </div>
 </template>
 
