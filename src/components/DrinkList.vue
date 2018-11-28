@@ -29,7 +29,7 @@ export default {
   methods:{
     chooseDrink: function(drink) {
       this.$session.set("drink", drink)
-      window.location.href = '/customerList'
+      window.location.href = '/customers'
     }
   }
 }

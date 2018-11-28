@@ -3,6 +3,7 @@ import VueSession from 'vue-session'
 
 import Home from './App.vue'
 import CustomerList from './page/CustomerSelect.vue'
+import CheckoutPage from './page/CheckoutPage.vue'
 import './assets/css/bootstrap.min.css'
 
 Vue.use(VueSession)
@@ -16,7 +17,8 @@ Vue.filter('money', (value) => {
 
 const routes = {
   '/': Home,
-  '/customerList': CustomerList
+  '/customers': CustomerList,
+  '/checkout': CheckoutPage
 }
 
 new Vue({
