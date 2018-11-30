@@ -2,8 +2,8 @@
 <div class="container">
   <div v-for="drink in drinksData" :key="drink.name">
     <div class="row">
-      <div class="col-sm-4"></div>
-      <div class="col-sm-3">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-4">
         <button class="button" v-on:click="chooseDrink(drink)">
           {{drink.name}}
         </button>
@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-</div>
+  </div>
 </template>
 
 <script>

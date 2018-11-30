@@ -14,7 +14,18 @@
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <button class="addButton" v-on:click="addCustomer(customer)">- Add New Customer -</button>
+       <button
+      type="button"
+      class="addButton"
+      @click="showModal"
+    >
+     -- Add Customer --
+    </button>
+
+    <addCustomerModal
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
     </div>
     <div class="col-sm-3"></div>
   </div>
@@ -22,18 +33,32 @@
 </template>
 
 <script>
+import addCustomerModal from '../modal/AddCustomerModal.vue'
+
 export default {
   name: 'DrinkList',
+  components: {
+    addCustomerModal
+  },
   props: {
     customersData: Array
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    }
   },
   methods:{
     chooseCustomer: function(customer) {
       this.$session.set("customer", customer)
       window.location.href = '/checkout'
     },
-    addCustomer: () => {
-      window.alert("TBD: Add Customer");
+    
+    showModal() {
+        this.isModalVisible = true;
+      },
+    closeModal() {
+      this.isModalVisible = false;
     }
   }
 }
