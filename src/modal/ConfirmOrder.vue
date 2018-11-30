@@ -7,39 +7,12 @@
         </header>
         <section class="modal-body">
           <h1> 
-          Enter your information below!
+          Confirm by inputing your initials
           </h1>
           <br />
           <slot name="body">
             <h3>
             <div class="form">
-              <div class="row">
-                <div class="col-sm-2"></div>
-                <div class= "col-sm-4">
-                First Name*: 
-                </div>
-                <div class= "col-sm-2">
-                <input v-model="firstName" required="true">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-2"></div>
-                <div class= "col-sm-4">
-                Middle Name:
-                </div>
-                <div class= "col-sm-4">
-                <input v-model="middleName" >
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-2"></div>
-                <div class= "col-sm-4">
-                Last Name*: 
-                </div>
-                <div class= "col-sm-2">
-                <input v-model="lastName" required="true">
-                </div>
-              </div>
               <div class="row">
                 <div class="col-sm-2"></div>
                 <div class= "col-sm-4">
@@ -79,10 +52,9 @@
     methods: {
       close() {
         this.$emit('close');
-        this.addCustomer()
-        window.location.reload()
+        this.addCustomer();
       },
-      addCustomer() {
+      confirm() {
         console.log(this.firstName + ":" + this.middleName + ":" + this.lastName + ":" + this.initials)
         //update the user list
       }
