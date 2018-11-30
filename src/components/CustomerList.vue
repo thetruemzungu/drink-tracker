@@ -28,8 +28,8 @@ export default {
     customersData: Array
   },
   methods:{
-    chooseCustomer: () => {
-      this.$session.set(customer, customer)
+    chooseCustomer: function(customer) {
+      this.$session.set("customer", customer)
       window.location.href = '/checkout'
     },
     addCustomer: () => {
