@@ -21,7 +21,6 @@
     <div class="col-sm-3"></div>
   </div>
 </div>
-  </div>
 </template>
 
 <script>
@@ -35,6 +34,7 @@ export default {
   components: {
     MasterHeader
   },
+  // eslint-disable-next-line
   data: {
     return: {
       order: {}
@@ -49,7 +49,7 @@ export default {
     },
     submitOrder: function() {
       //sends order to api
-      window.location.href = '/'
+      this.$router.push('/')
     }
   }
 }

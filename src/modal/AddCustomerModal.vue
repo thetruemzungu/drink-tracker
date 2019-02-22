@@ -83,7 +83,6 @@
         window.location.reload()
       },
       addCustomer() {
-        console.log(this.firstName + ":" + this.middleName + ":" + this.lastName + ":" + this.initials)
         //update the user list
       }
     },

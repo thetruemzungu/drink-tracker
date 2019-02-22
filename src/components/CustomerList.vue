@@ -51,7 +51,7 @@ export default {
   methods:{
     chooseCustomer: function(customer) {
       this.$session.set("customer", customer)
-      window.location.href = '/checkout'
+      this.$router.push('/checkout')
     },
     
     showModal() {

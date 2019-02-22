@@ -20,6 +20,7 @@ export default {
   },
   methods:{
     drinks: () => {
+      store.commit('increment')
       return [{name: 'Kill Cliff', price: 2.00},{name: 'O2', price: 2.25},{name: 'StarBucks', price: 2.50},{name: 'Red Bull', price: 2.75},{name: 'Coke Zero', price: 3.00}]
     }
   }

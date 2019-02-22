@@ -29,7 +29,8 @@ export default {
   methods:{
     chooseDrink: function(drink) {
       this.$session.set("drink", drink)
-      window.location.href = '/customers'
+      this.$store.commit('addNewDrink', {name: 'Kill Cliff', price: 2.00})
+      this.$router.push('/customer')
     }
   }
 }

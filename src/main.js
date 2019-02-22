@@ -1,39 +1,21 @@
 import Vue from 'vue'
 import VueSession from 'vue-session'
+import Vuex from 'vuex'
+import store from './store'
 
-import Home from './App.vue'
-import CustomerList from './page/CustomerSelect.vue'
-import CheckoutPage from './page/CheckoutPage.vue'
+import router from './router'
+import App from './App.vue'
 import './assets/css/bootstrap.min.css'
 
-Vue.use(VueSession)
-
-const NotFound = { template: '<p>NOT FOUND</p>' }
+Vue.use(VueSession, Vuex)
 
 //filters
 Vue.filter('money', (value) => {
   return '$'+value.toFixed(2)
 })
 
-const routes = {
-  '/': Home,
-  '/customers': CustomerList,
-  '/checkout': CheckoutPage
-}
-
 new Vue({
-  el: '#app',
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      return routes[this.currentRoute] || NotFound
-    }
-  },
-  render (h) { return h(this.ViewComponent) }
-})
-
-// new Vue({
-//   render: h => h(App),
-// }).$mount('#app')
+  render: h => h(App),
+  store,
+  router
+}).$mount('#app')
