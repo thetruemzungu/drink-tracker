@@ -30,7 +30,9 @@ export default {
   },
   methods:{
     chooseDrink: function(drink) {
-      this.$store.commit('updateOrder', drink)
+      let order = this.$store.state.order
+      order.selectedDrink = drink
+      this.$store.commit('updateOrder', order)
       this.$router.push('/customer')
     }
   }
