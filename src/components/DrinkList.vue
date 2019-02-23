@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <div v-for="drink in drinksData" :key="drink.name">
+  <div v-for="drink in drinks" :key="drink.name">
     <div class="row">
       <div class="col-sm-3"></div>
       <div class="col-sm-4">
@@ -19,8 +19,10 @@
 <script>
 export default {
   name: 'DrinkList',
-  props: {
-    drinksData: Array
+  computed:{
+    drinks() {
+      return this.$store.state.drinks
+    }
   },
   created() {
     this.$session.destroy()

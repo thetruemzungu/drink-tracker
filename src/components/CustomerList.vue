@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-   <div v-for="customer in customersData" :key="customer.name">
+   <div v-for="customer in customers" :key="customer.name">
     <div class="row">
       <div class="col-sm-3"></div>
       <div class="col-sm-6">
@@ -40,12 +40,14 @@ export default {
   components: {
     addCustomerModal
   },
-  props: {
-    customersData: Array
-  },
   data() {
     return {
       isModalVisible: false,
+    }
+  },
+  computed: {
+    customers() {
+      return this.$store.state.customers
     }
   },
   methods:{

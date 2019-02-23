@@ -1,7 +1,7 @@
 <template>
   <div class="WelcomePage">
     <MasterHeader msg="Want to get a drink?"></MasterHeader>
-    <DrinkList :drinksData=drinks()></DrinkList>
+    <DrinkList></DrinkList>
   </div>
 </template>
 
@@ -18,11 +18,6 @@ export default {
     DrinkList,
     MasterHeader
   },
-  methods:{
-    drinks: () => {
-      return [{name: 'Kill Cliff', price: 2.00},{name: 'O2', price: 2.25},{name: 'StarBucks', price: 2.50},{name: 'Red Bull', price: 2.75},{name: 'Coke Zero', price: 3.00}]
-    }
-  }
 }
 </script>
 
