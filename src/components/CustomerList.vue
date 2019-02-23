@@ -73,6 +73,7 @@ export default {
     padding: 1% 0;
   }
   .button{
+    text-transform: capitalize;
     border-radius: 10px;
     font-size: 1.5em;
     color: #E1F2FE;

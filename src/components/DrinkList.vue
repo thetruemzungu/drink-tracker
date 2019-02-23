@@ -32,6 +32,7 @@ export default {
     chooseDrink: function(drink) {
       let order = this.$store.state.order
       order.selectedDrink = drink
+
       this.$store.commit('updateOrder', order)
       this.$router.push('/customer')
     }

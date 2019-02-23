@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     drinks:  [{name: 'Kill Cliff', price: 2.00},{name: 'O2', price: 2.25},{name: 'StarBucks', price: 2.50},{name: 'Red Bull', price: 2.75},{name: 'Coke Zero', price: 3.00}],
-    customers: [],
+    customers: [{firstName: 'ethan', middleName: 'thomas', lastName: 'latimer', initials: 'etl'}],
     order:{selectedDrink:'', selectedCustomer:''}
   },
   mutations:{
