@@ -4,19 +4,18 @@
     <div class="row">
       <div class="col-sm-3"></div>
       <div class="col-sm-6 receipt">
-        
-        <div>Customer: {{order.customer.name}}</div>
-        <div>Current Drink Tab: x{{order.customer.quantity}}</div>
+        <div>Customer: {{order.selectedCustomer.firstName}} {{order.selectedCustomer.lastName}}</div>
+        <div>Current Drink Tab: x{{order.selectedCustomer.quantity}}</div>
         <hr>
-        <div>Item Picked: {{order.choice.name}}</div>
-        <div>Price: {{order.choice.price | money}}</div>
+        <div>Item Picked: {{order.selectedDrink.name}}</div>
+        <div>Price: {{order.selectedDrink.price | money}}</div>
       </div>
       <div class="col-sm-3"></div>
     </div>
     <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <button class="addButton" v-on:click="submitOrder(customer)">Submit</button>
+      <button class="addButton" v-on:click="submitOrder(order)">Submit</button>
     </div>
     <div class="col-sm-3"></div>
   </div>
@@ -42,12 +41,9 @@ export default {
   },
   methods:{
     getOrder: function() {
-      this.order = {
-      customer: this.$session.get('customer'),
-        choice: this.$session.get('drink')
-      }
+      this.order = this.$store.state.order
     },
-    submitOrder: function() {
+    submitOrder: function(order) {
       //sends order to api
       this.$router.push('/')
     }

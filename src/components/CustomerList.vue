@@ -52,7 +52,10 @@ export default {
   },
   methods:{
     chooseCustomer: function(customer) {
-      this.$session.set("customer", customer)
+      let order = this.$store.state.order
+      order.selectedCustomer = customer
+
+      this.$store.commit('updateOrder', order)
       this.$router.push('/checkout')
     },
     
