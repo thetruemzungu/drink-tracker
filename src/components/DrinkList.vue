@@ -30,8 +30,7 @@ export default {
   },
   methods:{
     chooseDrink: function(drink) {
-      this.$session.set("drink", drink)
-      this.$store.commit('addNewDrink', {name: 'Kill Cliff', price: 2.00})
+      this.$store.commit('updateOrder', drink)
       this.$router.push('/customer')
     }
   }

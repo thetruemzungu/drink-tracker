@@ -5,7 +5,7 @@
       <div class="col-sm-3"></div>
       <div class="col-sm-6">
         <button class="button" v-on:click="chooseCustomer(customer)">
-          {{customer.name}}
+          {{customer.firstName}} {{customer.lastName}}
         </button>
       </div>
       <div class="col-sm-3"></div>

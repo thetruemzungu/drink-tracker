@@ -3,7 +3,7 @@
     <div class="modal-backdrop">
       <div class="modal">
         <header class="modal-header">
-        <button type="button" class="btn-close" @click="close"> x </button>
+        <button type="button" class="btn-close" @keyUp.escape="close" @click="close"> x </button>
         </header>
         <section class="modal-body">
           <h1> 
@@ -56,9 +56,9 @@
         <button
           type="button"
           class="button"
-          @click="close"
+          @click="addCustomer"
         >
-          Close me!
+          Add
       </button>
       </div>
     </div>
@@ -79,11 +79,10 @@
     methods: {
       close() {
         this.$emit('close');
-        this.addCustomer()
-        window.location.reload()
       },
       addCustomer() {
-        //update the user list
+        this.$emit('close');
+        this.$store.commit('addCustomer', {firstName: this.firstName, middleName: this.middleName, lastName: this.lastName, initials: this.initials})
       }
     },
   };
