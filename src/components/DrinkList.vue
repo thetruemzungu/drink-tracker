@@ -1,15 +1,15 @@
 <template>
 <div class="container">
-  <div v-for="drink in drinks" :key="drink.name">
+  <div v-for="drink in drinks" :key="drink.Name">
     <div class="row">
       <div class="col-sm-3"></div>
       <div class="col-sm-4">
         <button class="button" v-on:click="chooseDrink(drink)">
-          {{drink.name}}
+          {{drink.Name}}
         </button>
       </div>
       <div class="col-sm-3 price">
-        cost: {{drink.price | money }}
+        cost: {{parseInt(drink.Price) | money }}
       </div>
     </div>
   </div>
@@ -21,14 +21,15 @@ export default {
   name: 'DrinkList',
   computed:{
     drinks() {
-      return this.$store.state.drinks
+      return this.$store.getters.drinks
     }
   },
-  created() {
+  async created() {
+    await this.$store.dispatch('retrieveDrinks')
     this.$session.destroy()
     this.$session.start()
   },
-  methods:{
+  methods: {
     chooseDrink: function(drink) {
       let order = this.$store.state.order
       order.selectedDrink = drink
