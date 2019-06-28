@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
+import DrinkService from '../service/api/drink.service'
+import CustomerService from '../service/api/customer.service'
 
 Vue.use(Vuex)
 
@@ -11,9 +13,17 @@ const vuexLocal = new VuexPersist({
 export default new Vuex.Store({
   plugins: [vuexLocal.plugin],
   state: {
-    drinks:  [{name: 'Kill Cliff', price: 2.00},{name: 'O2', price: 2.25},{name: 'StarBucks', price: 2.50},{name: 'Red Bull', price: 2.75},{name: 'Coke Zero', price: 3.00}],
-    customers: [{firstName: 'ethan', middleName: 'thomas', lastName: 'latimer', initials: 'etl'}],
+    drinks:  [],
+    customers: [],
     order:{selectedDrink:'', selectedCustomer:''}
+  },
+  getters: {
+    drinks(state) {
+      return JSON.parse(JSON.stringify(state.drinks))
+    },
+    customers(state) {
+      return JSON.parse(JSON.stringify(state.customers))
+    }
   },
   mutations:{
     addNewDrink(state, drink) {
@@ -24,6 +34,33 @@ export default new Vuex.Store({
     },
     updateOrder(state, order){
       state.order = order
+    },
+    SET_DRINKS(state, payload) {
+      state.drinks = payload
+    },
+    SET_CUSTOMERS(state, payload) {
+      state.customers = payload
     }
   },
+  actions:{
+    retrieveCustomers: async ({ commit }) => {
+      let customers = []
+      const customerService = new CustomerService()
+      let response = await customerService.fetchCustomers()
+
+      response.data.records.forEach(customer => {
+        customers.push(customer.fields)
+      })
+      commit('SET_CUSTOMERS', customers)
+    },
+    retrieveDrinks: async ({ commit }) => {
+      let drinks = []
+      const drinkService = new DrinkService()
+      let response = await drinkService.fetchDrinks()
+      response.data.records.forEach(drink => {
+        drinks.push(drink.fields)
+      });
+      commit('SET_DRINKS', drinks)
+    }
+  }
 })

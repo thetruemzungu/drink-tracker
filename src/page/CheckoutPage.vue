@@ -4,18 +4,18 @@
     <div class="row">
       <div class="col-sm-3"></div>
       <div class="col-sm-6 receipt">
-        <div>Customer: {{order.selectedCustomer.firstName}} {{order.selectedCustomer.lastName}}</div>
-        <div>Current Drink Tab: x{{order.selectedCustomer.quantity}}</div>
+        <div>Customer: {{this.getOrder().selectedCustomer.name}}</div>
+        <div>Current Drink Tab: x{{this.getOrder().selectedCustomer.quantity}}</div>
         <hr>
-        <div>Item Picked: {{order.selectedDrink.name}}</div>
-        <div>Price: {{order.selectedDrink.price | money}}</div>
+        <div>Item Picked: {{this.getOrder().selectedDrink.name}}</div>
+        <div>Price: {{this.getOrder().selectedDrink.price | money }}</div>
       </div>
       <div class="col-sm-3"></div>
     </div>
     <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <button class="addButton" v-on:click="submitOrder(order)">Submit</button>
+      <button class="addButton" v-on:click="submitOrder(this.getOrder())">Submit</button>
     </div>
     <div class="col-sm-3"></div>
   </div>
@@ -33,18 +33,11 @@ export default {
   components: {
     MasterHeader
   },
-  // eslint-disable-next-line
-  data: {
-    return: {
-      order: {}
-    }
-  },
   methods:{
     getOrder: function() {
-      this.order = this.$store.state.order
+      return this.$store.state.order
     },
     submitOrder: function(order) {
-      //sends order to api
       this.$router.push('/')
     }
   }

@@ -5,11 +5,11 @@
       <div class="col-sm-3"></div>
       <div class="col-sm-4">
         <button class="button" v-on:click="chooseDrink(drink)">
-          {{drink.Name}}
+          {{drink.name}}
         </button>
       </div>
       <div class="col-sm-3 price">
-        cost: {{parseInt(drink.Price) | money }}
+        cost: {{drink.price | money }}
       </div>
     </div>
   </div>

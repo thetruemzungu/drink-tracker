@@ -5,7 +5,7 @@
       <div class="col-sm-3"></div>
       <div class="col-sm-6">
         <button class="button" v-on:click="chooseCustomer(customer)">
-          {{customer.firstName}} {{customer.lastName}}
+          {{customer.name}}
         </button>
       </div>
       <div class="col-sm-3"></div>
@@ -36,9 +36,12 @@
 import addCustomerModal from '../modal/AddCustomerModal.vue'
 
 export default {
-  name: 'DrinkList',
+  name: 'CustomerList',
   components: {
     addCustomerModal
+  },
+  async created () {
+    await this.$store.dispatch('retrieveCustomers')
   },
   data() {
     return {

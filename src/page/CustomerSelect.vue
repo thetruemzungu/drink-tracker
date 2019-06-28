@@ -1,7 +1,7 @@
 <template>
   <div class="CustomerSelect" id="app">
     <MasterHeader msg="Who are you?"></MasterHeader>
-    <CustomerList :customersData=customers()></CustomerList>
+    <CustomerList></CustomerList>
   </div>
 </template>
 
@@ -14,11 +14,6 @@ export default {
   components: {
     CustomerList,
     MasterHeader
-  },
-  methods:{
-    customers: () => {
-      return [{name: 'John Snow', quantity: 2, initials: 'js'},{name: 'Ethan Latimer', quantity: 4, initials: 'el'},{name: 'Kirito', quantity: 5, initials: 'k'},{name: 'Mega Man', quantity: 1, initials:'mm'},{name: 'Laila', quantity: 3, initials:'l'}]
-    }
   }
 }
 </script>
