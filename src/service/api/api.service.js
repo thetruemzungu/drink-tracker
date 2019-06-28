@@ -4,7 +4,7 @@ export default class ApiService {
     constructor() {
       const headers = this.setHeaders()
       this.api = axios.create({
-        baseURL: 'https://api.airtable.com/v0/' + ENV['accountID'] + '/',
+        baseURL: 'https://api.airtable.com/v0/' + process.env.accountId + '/',
         headers: headers
       })
     }
@@ -12,7 +12,7 @@ export default class ApiService {
     setHeaders() { 
       return {
         Accept: 'application/json',
-        Authorization: 'Bearer ' + ENV['bearerToken']
+        Authorization: 'Bearer ' + process.env.bearerToken
       }
     }
   }
