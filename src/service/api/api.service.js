@@ -3,6 +3,7 @@ import axios from 'axios'
 export default class ApiService {
     constructor() {
       const headers = this.setHeaders()
+      console.log(process.env)
       this.api = axios.create({
         baseURL: 'https://api.airtable.com/v0/' + process.env.accountId + '/',
         headers: headers
